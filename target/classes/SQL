@@ -1,0 +1,19 @@
+CREATE SCHEMA `test_tasks` ;
+
+CREATE TABLE `test_tasks`.`daily_statistics` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `date` DATE NOT NULL,
+  `demand` VARCHAR(225) NOT NULL,
+  `generation` DOUBLE NOT NULL,
+  `engine` VARCHAR(225) NOT NULL,
+  `turbine` VARCHAR(225) NOT NULL,
+  `fuel_type` VARCHAR(225) NOT NULL,
+  `cycle` INT NOT NULL,
+  `auxiliary_generation` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+  
+  ALTER TABLE `test_tasks`.`daily_statistics` 
+CHANGE COLUMN `cycle` `cycle` VARCHAR(225) NOT NULL ;
+
+INSERT INTO `test_tasks`.`daily_statistics` (`date`, `demand`, `generation`, `engine`, `turbine`, `fuel_type`, `cycle`, `auxiliary_generation`) VALUES ('2017-10-10', 'B.C', '1234.56', 'Diesel engines', 'Gas turbine', 'Fuel and Gas', 'Combined cycle', 'Auxiliary generation');
